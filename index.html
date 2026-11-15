@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theomar Cardoso Peixoto Neto | Portfólio</title>
+<meta name="description" content="Portfólio de Theomar Cardoso Peixoto Neto, estudante de Ciência da Computação que constrói sistemas de logística, WMS e servidores de jogos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --piso:#E3E3DD;      /* concreto do galpão */
+    --etiqueta:#FBFBF8;  /* papel térmico */
+    --tinta:#000;
+    --cinza:#5B5D5F;
+    --faixa:#F2C230;     /* faixa de piso amarela */
+    --link:#1F4FCC;
+    --w-cond: 70; --w-norm: 100; --w-exp: 125;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{
+    font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;
+    background:var(--piso);color:var(--tinta);font-size:1.0625rem;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--link);text-underline-offset:3px}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--link);outline-offset:3px}
+  img{display:block;max-width:100%}
+
+  .faixa{height:14px;background:repeating-linear-gradient(-45deg,var(--faixa) 0 18px,var(--tinta) 18px 36px)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* topo */
+  .topo{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+  .topo strong{font-variation-settings:"wdth" 125;font-weight:800;letter-spacing:-.01em}
+  .topo nav{display:flex;gap:22px;font-size:.95rem}
+  .topo nav a{color:var(--tinta);text-decoration:none}
+  .topo nav a:hover{text-decoration:underline}
+
+  /* HERO: etiqueta de expedição */
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:40px 0 96px}
+  .hero h1{font-variation-settings:"wdth" 62;font-weight:900;font-size:clamp(3.2rem,8.5vw,6.6rem);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}
+  .hero p.lead{font-size:1.25rem;max-width:34ch;margin-top:22px;color:#1d1d1f}
+  .acoes{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:13px 20px;border:2px solid var(--tinta);font-weight:700;text-decoration:none;color:var(--tinta);background:transparent}
+  .btn.cheio{background:var(--tinta);color:var(--etiqueta)}
+  .btn:hover{background:var(--faixa);color:var(--tinta)}
+
+  .label{background:var(--etiqueta);border:3px solid var(--tinta);box-shadow:10px 10px 0 var(--tinta);
+    animation:imprime .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes imprime{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+  .label .barra{background:var(--tinta);color:var(--etiqueta);display:flex;justify-content:space-between;align-items:baseline;padding:10px 16px;font-variation-settings:"wdth" 125;font-weight:800}
+  .label .barra span:last-child{font-variation-settings:"wdth" 70;font-weight:600;opacity:.85}
+  .label .corpo{display:grid;grid-template-columns:150px 1fr;border-bottom:3px solid var(--tinta)}
+  .label .corpo img{width:150px;height:100%;object-fit:cover;border-right:3px solid var(--tinta);filter:grayscale(1) contrast(1.15)}
+  .campos{display:grid}
+  .campo{padding:9px 14px;border-bottom:1.5px solid var(--tinta)}
+  .campo:last-child{border-bottom:0}
+  .campo small{display:block;font-size:.72rem;color:var(--cinza);font-weight:600}
+  .campo b{font-variation-settings:"wdth" 80;font-size:1.05rem}
+  .contagem{display:grid;grid-template-columns:1fr auto;align-items:stretch}
+  .contagem .obs{padding:12px 16px;font-size:.92rem;border-right:3px solid var(--tinta)}
+  .contagem .obs small{display:block;font-size:.72rem;color:var(--cinza);font-weight:600}
+  .contagem .vol{background:var(--tinta);color:var(--etiqueta);padding:8px 18px;text-align:center;font-variation-settings:"wdth" 62;font-weight:900;font-size:2.6rem;line-height:1;display:flex;flex-direction:column;justify-content:center}
+  .contagem .vol small{display:block;font-size:.7rem;font-weight:600;font-variation-settings:"wdth" 100}
+
+  /* seções */
+  section{padding:80px 0;border-top:3px solid var(--tinta)}
+  .cab{display:grid;grid-template-columns:330px 1fr;gap:40px;margin-bottom:40px}
+  .h2,.cab h2{font-variation-settings:"wdth" 62;font-weight:900;font-size:2.6rem;line-height:1;text-transform:uppercase}
+  .cab p{max-width:62ch;color:#222}
+
+  /* sobre */
+  .sobre-txt{display:grid;grid-template-columns:330px 1fr;gap:40px}
+  .sobre-txt div{max-width:64ch;display:grid;gap:16px}
+
+  /* projetos como endereços do armazém */
+  .legenda{font-size:.92rem;color:var(--cinza);margin:-20px 0 28px 300px;max-width:60ch}
+  .rua{margin-bottom:44px}
+  .rua h3{display:flex;align-items:baseline;gap:14px;font-variation-settings:"wdth" 125;font-weight:800;font-size:1.15rem;padding-bottom:10px;border-bottom:3px solid var(--tinta)}
+  .rua h3 .n{background:var(--faixa);border:2px solid var(--tinta);padding:0 8px;font-variation-settings:"wdth" 62;font-weight:900;font-size:1.3rem}
+  .pos{display:grid;grid-template-columns:110px 1fr 220px;gap:28px;padding:22px 0;border-bottom:1.5px solid var(--tinta)}
+  .pos .end{font-variation-settings:"wdth" 62;font-weight:900;font-size:2.2rem;line-height:1}
+  .pos .end small{display:block;font-size:.72rem;font-weight:600;color:var(--cinza);font-variation-settings:"wdth" 100;margin-top:4px}
+  .pos h4{font-size:1.3rem;font-weight:800;font-variation-settings:"wdth" 90;margin-bottom:6px}
+  .pos p{max-width:60ch;color:#222}
+  .pos ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
+  .pos li{font-size:.82rem;font-weight:600;border:1.5px solid var(--tinta);padding:2px 8px;background:var(--etiqueta)}
+  .status{display:inline-block;margin-top:10px;font-size:.82rem;font-weight:700}
+  .status::before{content:"";display:inline-block;width:9px;height:9px;margin-right:7px;background:var(--faixa);border:1.5px solid var(--tinta)}
+  .status.proto::before{background:var(--etiqueta)}
+
+  /* tecnologias */
+  .estoque{width:100%;border-collapse:collapse;background:var(--etiqueta);border:3px solid var(--tinta)}
+  .estoque th,.estoque td{text-align:left;padding:12px 16px;border-bottom:1.5px solid var(--tinta);vertical-align:top}
+  .estoque th{background:var(--tinta);color:var(--etiqueta);font-variation-settings:"wdth" 125;font-weight:700;font-size:.9rem}
+  .estoque tr:last-child td{border-bottom:0}
+  .estoque td:first-child{font-weight:800;width:220px;font-variation-settings:"wdth" 85}
+  .estoque td:last-child{width:150px;font-weight:600}
+  .nivel{display:flex;gap:3px;margin-top:5px}
+  .nivel i{width:22px;height:8px;border:1.5px solid var(--tinta)}
+  .nivel i.on{background:var(--tinta)}
+
+  /* formação */
+  .linha{display:grid;grid-template-columns:330px 1fr;gap:40px}
+  .linha dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;max-width:640px}
+  .linha dt{font-weight:800}
+  .linha dd{color:#222}
+
+  /* contato */
+  .contato{background:var(--tinta);color:var(--etiqueta);border-top:0}
+  .contato .cab h2{color:var(--faixa)}
+  .contato .cab p{color:#ddd}
+  .contato ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:2px solid var(--etiqueta)}
+  .contato li{padding:18px 20px;border-right:2px solid var(--etiqueta)}
+  .contato li:last-child{border-right:0}
+  .contato li small{display:block;font-size:.78rem;color:#bbb;margin-bottom:4px}
+  .contato a{color:var(--etiqueta);font-weight:700;word-break:break-word}
+  footer{background:var(--tinta);color:#999;font-size:.85rem;padding:28px 0 36px}
+
+  @media (max-width:880px){
+    .hero{grid-template-columns:1fr;gap:44px;padding-top:16px}
+    .cab,.sobre-txt,.linha{grid-template-columns:1fr;gap:14px}
+    .legenda{margin:-10px 0 24px 0}
+    .pos{grid-template-columns:80px 1fr;gap:16px}
+    .pos ul{grid-column:2}
+    .topo nav{display:none}
+    .contato li{border-right:0;border-bottom:2px solid var(--etiqueta)}
+    .contato li:last-child{border-bottom:0}
+  }
+  @media (max-width:480px){
+    .label .corpo{grid-template-columns:1fr}
+    .label .corpo img{width:100%;height:320px;border-right:0;border-bottom:3px solid var(--tinta);object-position:center 45%}
+    .estoque thead{display:none}
+    .estoque,.estoque tbody,.estoque tr,.estoque td{display:block;width:auto!important}
+    .estoque tr{border-bottom:1.5px solid var(--tinta);padding:10px 0}
+    .estoque tr:last-child{border-bottom:0}
+    .estoque td{border:0;padding:3px 16px}
+  }
+</style>
+</head>
+<body>
+<div class="faixa" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header class="topo">
+    <strong>Theomar Cardoso Peixoto Neto</strong>
+    <nav aria-label="Seções">
+      <a href="#projetos">Projetos</a>
+      <a href="#tecnologias">Tecnologias</a>
+      <a href="#formacao">Formação</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Sistemas que tiram o caos do galpão</h1>
+        <p class="lead">Sou estudante de Ciência da Computação e aprendo construindo software para problemas reais: estoque, conferência, rotas de entrega e servidores de jogos.</p>
+        <div class="acoes">
+          <a class="btn cheio" href="#projetos">Ver projetos</a>
+          <a class="btn" href="#contato">Falar comigo</a>
+        </div>
+      </div>
+
+      <figure class="label" aria-label="Resumo em formato de etiqueta de expedição">
+        <div class="barra"><span>THEOMAR PEIXOTO NETO</span><span>Pedido 2026</span></div>
+        <div class="corpo">
+          <img src="foto.jpg" alt="Foto de Theomar Cardoso Peixoto Neto">
+          <div class="campos">
+            <div class="campo"><small>Função</small><b>Desenvolvedor em formação</b></div>
+            <div class="campo"><small>Curso</small><b>Ciência da Computação, 4º semestre</b></div>
+            <div class="campo"><small>Rota</small><b>Back-end, banco de dados e web</b></div>
+            <div class="campo"><small>Destino</small><b>Estágio ou primeira vaga em TI</b></div>
+          </div>
+        </div>
+        <div class="contagem">
+          <div class="obs"><small>Observação</small>Disponível para começar. Gosto de entender o processo do cliente antes de escrever código.</div>
+          <div class="vol">4<small>projetos</small></div>
+        </div>
+      </figure>
+    </div>
+
+    <section id="sobre" aria-labelledby="t-sobre">
+      <div class="sobre-txt">
+        <h2 id="t-sobre" class="h2">Sobre</h2>
+        <div>
+          <p>Comecei a programar resolvendo problemas do meu dia a dia. Trabalhando com entregas, eu fotografava o romaneio impresso da empresa e montava a rota na mão. Daí veio meu primeiro sistema de rotas, e depois vieram outros: controle de estoque, conferência de pedidos por leitor de código e etiquetas de expedição.</p>
+          <p>Hoje curso o 4º semestre de Ciência da Computação. Meus projetos são onde eu pratico o que aprendo em aula: modelagem de banco de dados, APIs, autenticação e interfaces que o operador consegue usar com pressa.</p>
+          <p>Ainda não tenho experiência formal na área, mas cada projeto abaixo é código que eu escrevi, testei e reescrevi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" aria-labelledby="t-projetos">
+      <div class="cab">
+        <h2 id="t-projetos">Projetos</h2>
+        <p>Organizei os projetos como um armazém. A rua 1 guarda os sistemas de logística e a rua 2 guarda os jogos e servidores.</p>
+      </div>
+
+      <div class="rua">
+        <h3><span class="n">Rua 1</span> Logística e gestão</h3>
+
+        <article class="pos">
+          <div class="end">101<small>rua 1, nível 1</small></div>
+          <div>
+            <h4>Nexlog WMS</h4>
+            <p>Sistema de conferência e embalagem integrado a um ERP. Cada funcionário confere uma faixa de ruas do mesmo pedido e passa para o próximo. Na embalagem, o operador bipa a caixa, o sistema confirma que o pedido foi 100% conferido e imprime a etiqueta de volume. O gestor vê quanto tempo cada pedido levou em cada etapa.</p>
+            <span class="status">Em desenvolvimento</span>
+          </div>
+          <ul><li>MySQL / MariaDB</li><li>JavaScript</li><li>Leitor Bluetooth</li><li>Etiqueta térmica</li></ul>
+        </article>
+
+        <article class="pos">
+          <div class="end">102<small>rua 1, nível 1</small></div>
+          <div>
+            <h4>CSP Logistics</h4>
+            <p>Sistema de romaneios, rotas e notas com visão separada para motorista e operador. Nasceu em PHP no XAMPP e estou migrando o back-end para Node.js, mantendo o mesmo banco.</p>
+            <span class="status">Em migração</span>
+          </div>
+          <ul><li>PHP</li><li>Node.js</li><li>MySQL</li><li>XAMPP</li></ul>
+        </article>
+      </div>
+
+      <div class="rua">
+        <h3><span class="n">Rua 2</span> Jogos e servidores</h3>
+
+        <article class="pos">
+          <div class="end">201<small>rua 2, nível 2</small></div>
+          <div>
+            <h4>Vila Ventura Roleplay</h4>
+            <p>Servidor de GTA RP no FiveM que eu mantenho. Adapto scripts, HUD, sistema de empresas e roubos, painel administrativo, e cuido da publicação das mudanças na máquina servidor.</p>
+            <span class="status">No ar</span>
+          </div>
+          <ul><li>Lua</li><li>FiveM</li><li>vRP</li><li>MySQL</li></ul>
+        </article>
+
+        <article class="pos">
+          <div class="end">202<small>rua 2, nível 2</small></div>
+          <div>
+            <h4>Servidor de MU Online</h4>
+            <p>Montagem de um servidor privado dentro de uma máquina virtual: criação dos bancos, configuração de IP e serviços.</p>
+            <span class="status proto">Em configuração</span>
+          </div>
+          <ul><li>SQL Server</li><li>VirtualBox</li><li>Windows Server</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="tecnologias" aria-labelledby="t-tec">
+      <div class="cab">
+        <h2 id="t-tec">Tecnologias</h2>
+        <p>O que eu uso nos projetos acima.</p>
+      </div>
+      <table class="estoque">
+        <thead><tr><th>Área</th><th>Ferramentas</th><th>Nível</th></tr></thead>
+        <tbody>
+          <tr><td>Linguagens</td><td>JavaScript, PHP, Lua</td><td>Intermediário<div class="nivel" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div></td></tr>
+          <tr><td>Web</td><td>HTML, CSS, Node.js, Express</td><td>Intermediário<div class="nivel" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div></td></tr>
+          <tr><td>Banco de dados</td><td>SQL, MySQL, MariaDB, HeidiSQL</td><td>Intermediário<div class="nivel" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div></td></tr>
+          <tr><td>Versionamento</td><td>Git, GitHub</td><td>Intermediário<div class="nivel" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div></td></tr>
+          <tr><td>Sistemas</td><td>Windows, Linux, VirtualBox</td><td>Intermediário<div class="nivel" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div></td></tr>
+          <tr><td>Ferramentas</td><td>VS Code, Pacote Office, Excel</td><td>Intermediário<div class="nivel" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="formacao" aria-labelledby="t-form">
+      <div class="linha">
+        <h2 id="t-form" class="h2">Formação</h2>
+        <dl>
+          <dt>Curso</dt><dd>Bacharelado em Ciência da Computação</dd>
+          <dt>Período</dt><dd>4º semestre, previsão de conclusão em 2029</dd>
+          <dt>Destaques</dt><dd>Lógica e Matemática Computacional, banco de dados, algoritmos</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+</div>
+
+<section id="contato" class="contato" aria-labelledby="t-cont">
+  <div class="wrap">
+    <div class="cab">
+      <h2 id="t-cont">Contato</h2>
+      <p>Procuro estágio ou primeira vaga em desenvolvimento. Respondo rápido por e-mail ou LinkedIn.</p>
+    </div>
+    <ul>
+      <li><small>E-mail</small><a href="mailto:netodnds.dnds0@gmail.com">netodnds.dnds0@gmail.com</a></li>
+      <li><small>LinkedIn</small><a href="https://www.linkedin.com/in/theomarneto/">linkedin.com/in/theomarneto</a></li>
+      <li><small>Cidade</small><span>São José, SC</span></li>
+    </ul>
+  </div>
+</section>
+<footer><div class="wrap">Feito à mão em HTML e CSS.</div></footer>
+</body>
+</html>
